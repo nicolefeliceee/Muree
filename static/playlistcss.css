@@ -1,0 +1,417 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Abhaya Libre', serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0,0,0,0.8);
+}
+
+/* NAVBAR */
+
+.navbar{
+    width: 178px;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    border: black 1.2px solid;
+}
+
+.imgLogo img{
+    width: 45px;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 35px;
+    margin-left: 23px;
+}
+
+.lingkaran{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: black 1px solid;
+    position: relative;
+    margin-top: -54px;
+    margin-left: 18px;
+}
+
+.barcode img{
+    width: 60px;
+    position: absolute;
+    margin-left: 78px;
+    margin-top: -43px;
+}
+
+.svgHome{
+    margin-left: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.textHome{
+    text-decoration: none;
+    color: #E8993B;
+    position: relative;
+    margin-left: 63px;
+    margin-top: -25px;
+}
+
+.pilihan a{
+    text-decoration: none;
+}
+
+.svgSignUp{
+    margin-left: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.textSignUp{
+    color: #E2E2E2;
+    position: relative;
+    margin-left: 63px;
+    margin-top: -25px;
+}
+
+.svgHistory{
+    margin-left: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.textHistory{
+    color: #E2E2E2;
+    position: relative;
+    margin-left: 63px;
+    margin-top: -25px;
+}
+
+.svgSavedSongs{
+    margin-left: 24px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.textSavedSongs{
+    color: #E2E2E2;
+    position: relative;
+    margin-left: 63px;
+    margin-top: -25px;
+}
+
+.signUp{
+    margin-top: -5px;
+}
+
+.history{
+    margin-top: -5px;
+}
+
+.savedSongs{
+    margin-top: -5px;
+}
+
+.navbarBawah {
+    justify-content: space-around;
+    margin-bottom: 0px;
+    bottom: 0;
+}
+
+.fotoNavbarBawah {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.fotoNavbarBawah img{
+    width: 130px;
+    margin: auto;
+}
+
+.sound {
+    display: flex;
+    /* background-color: green; */
+    justify-content:space-evenly;
+}
+
+/* SLIDER */
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;  
+    background: #C2B5B5;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: #CD8C5A;
+    border: black 1px solid;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #CD8C5A;
+    border: black 1px solid;
+    cursor: pointer;
+}
+
+/* CURRENTLY PLAYING */
+
+/* BODY */
+.kotakBawah{
+    top: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.kotakKiri{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 55%;
+    display: flex;
+    align-items: center;
+}
+
+.laguCurrent{
+    /* display: block; */
+    margin: auto;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    background-color: rgb(41, 41, 41);
+    padding: 2%;
+    /* padding-top: 5%;
+    padding-bottom: 5%; */
+}
+
+.currphoto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#currphoto{
+    width: 90%;
+    display: flex;
+    margin: auto;
+}
+
+.curr_num {
+    color: white;
+    font-size: 50px;
+}
+
+.judulLagu{
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.penyanyiLagu{
+    color: #FFFFFF;
+    font-size: 24px;
+    text-align: center;
+    /* border: cyan solid 5px; */
+}
+
+.mediabuttons{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mediabuttons button {
+    transition: ease-in 0.5;
+    background: none;
+    border: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #343434;
+    padding: 8px;
+    border-radius: 40px;
+}
+
+.mediabuttons :hover{
+    transition: ease-out 0.5s;
+    background-color:black;
+    border-radius: 40px;
+    color: #343434;
+}
+
+.mediabuttons svg {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.tombolPauseSvg{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tombolPlaySvg{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tombolBackwardSvg{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.tombolForwardSvg{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* .vl {
+    border-left: 1px solid black;
+    height: 516px;
+} */
+
+/* KOTAK KANAN */
+
+.kotakKanan{
+    position: fixed;
+    width: 45%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    /* margin-top: 70px; */
+}
+
+.playlist{
+    width: 80%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kumpulanPlaylist{
+    padding-top: 25px;
+    background-color: rgb(41, 41, 41);
+    height: 95%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.list{
+    display: flex;
+}
+
+.divqueuetxt{
+    position: fixed;
+    background-color: rgb(41, 41, 41);
+    padding: 5px;
+    width: 35%;
+    z-index: 1;
+}
+
+.queueText{
+    font-size: 16px;
+    color: #C5C4C4;
+    z-index: 1;
+}
+
+.songphotos img{
+    width: 50px;
+    margin: 10px;
+}
+
+.singerSong{
+    color: #FFFFFF;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.judulPlaylist{
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.penyanyiPlaylist{
+    font-size: 12px;
+}
+
+hr.garisPlaylist1{
+    background-color: #7A7777;
+    border: 0.1px solid #7A7777;
+    opacity: 15%;
+    width: 100%;
+    margin-top: -4px;
+}
+
+.num{
+    display: none;
+    color: white;
+}
+
+.final{
+    color: white;
+    display: none;
+}
+
+#curr_num {
+    display: none;
+}
+
+#gotoHome {
+    transition: ease-in 0.5;
+    text-decoration: none;
+    position: fixed;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100px;
+    background-color: rgb(41, 41, 41);
+    height: 50px;
+    bottom: 2%;
+    right: 2%;
+    padding: 5px;
+}
+
+#gotoHome :hover{
+    transition: ease-out 0.5;
+    text-decoration: none;
+    position: fixed;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100px;
+    background-color: black;
+    height: 50px;
+    bottom: 2%;
+    right: 2%;
+    padding: 5px;
+}
+
+#counter {
+    display: none;
+}

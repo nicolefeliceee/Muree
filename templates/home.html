@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}home{% endblock %}
+{% block content %}
+    <h1>
+        MUREE
+    </h1>
+    {% for x in passed_var %}
+    <p>
+        {{x}}
+    </p>
+    {% endfor %}
+    <a href="{{ url_for('playlist') }}">playlist</a>
+    <p>-----</p>
+    <p>playing: {{ passed }}</p>
+    <form action="#" method="post">
+        <input type="radio" name="nama" value="daniel">daniel
+        <input type="radio" name="nama" value="luigi">luigi
+        <input type="radio" name="nama" value="nikol">nikol
+        <p><input type="submit" value="submit"/></p>
+    </form>
+    <a href="{{ url_for('clear') }}">clear</a>
+
+    
+    <p>{{ page }}</p>
+    <p>song no: {{ number_show }}</p>
+    <p>singer: {{ singer_show }}</p>
+    <p>song title: {{ song_show }}</p>  
+    <p>---------------------------</p>
+    <p>user profile genre:</p>
+    {% for g in profile_genre %}
+    {{g}}
+    {% endfor %}
+    <p>---------------------------</p>
+    <p>user profile year:</p>
+    {% for y in profile_years %}
+    {{y}}
+    {% endfor %}
+    <p>---------------------------</p>
+    <a href="{{ url_for('playlist') }}">playlist</a>
+    <p>---------------------------</p>
+    <a href="{{ url_for('clear') }}">clear</a>
+    <p>---------------------------</p>
+    <form action="#" method="post">
+        {% for num, singer, song, final in song_list %}
+        <button type="submit" name="choose" value="{{loop.index}}">
+            {{loop.index}} | 
+            <b>{{num}}</b> | 
+            {{singer}} | 
+            <b>{{song}}</b> | 
+            {{final}}
+        </button>
+        <br>
+        {% endfor %}
+    </form>
+{% endblock %}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>playlist</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='playlistcss.css') }}">
+        <style>
+            /* width */
+            ::-webkit-scrollbar {
+                width: 20px;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: darkgrey; 
+                border-radius: 10px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgb(99, 99, 99); 
+            }
+        </style>
+    </head>
+    <body>
+        <!-- BAGIAN BAWAH -->
+        <!-- kiri -->
+        <div class="kotakBawah">
+            <div class="kotakKiri">
+                <div class="laguCurrent">
+                    <div class="currphoto">
+                        <img id="currphoto" src="" alt="">
+                    </div>
+                    <div class="curr_num" id="curr_num">{{ curr_song_num }}</div>
+                    <div id="counter">{{ song_no }}</div>
+                    <div class="judulLagu">{{ song_show }}</div>
+                    <div class="penyanyiLagu">{{ singer_show }}</div>
+                    <div class="mediabuttons">
+                        <form action="#" method="post">
+                            <button class="tombolBackwardSvg" name="mediabtn" id="backward" value="backwardbtn">
+                                <svg width="29" height="31" viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M28.1994 5.05869C28.1994 1.32867 24.814 -0.977987 22.1532 0.942229L8.06858 11.105C5.48361 12.97 5.48361 17.4729 8.06858 19.3379L22.1532 29.5006C24.814 31.4209 28.1994 29.1166 28.1994 25.3842V5.05869ZM10.1226 15.2214L24.2072 5.05869V25.3842L10.1226 15.2214ZM2.2499 0.819815C2.7793 0.819815 3.28702 1.0727 3.66137 1.52284C4.03571 1.97298 4.24602 2.58349 4.24602 3.22009V27.2228C4.24602 27.8594 4.03571 28.4699 3.66137 28.92C3.28702 29.3702 2.7793 29.6231 2.2499 29.6231C1.7205 29.6231 1.21278 29.3702 0.838433 28.92C0.464089 28.4699 0.253784 27.8594 0.253784 27.2228V3.22009C0.253784 2.58349 0.464089 1.97298 0.838433 1.52284C1.21278 1.0727 1.7205 0.819815 2.2499 0.819815Z" fill="#7C7474"/>
+                                </svg>                        
+                            </button>
+                        </form>
+                        <button class="tombolPauseSvg" name="mediabtn" id="pause" value="pausebtn">
+                            <svg width="60" height="60" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.9374 21.043H26.0184V36.286H20.9374V21.043ZM36.1804 36.286H31.0994V21.043H36.1804V36.286Z" fill="#7C7474"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M56.5045 28.6646C56.5045 44.0982 43.9925 56.6102 28.5589 56.6102C13.1253 56.6102 0.613281 44.0982 0.613281 28.6646C0.613281 13.231 13.1253 0.718994 28.5589 0.718994C43.9925 0.718994 56.5045 13.231 56.5045 28.6646ZM51.4235 28.6646C51.4235 31.6672 50.8321 34.6405 49.683 37.4145C48.534 40.1886 46.8498 42.7091 44.7266 44.8323C42.6034 46.9555 40.0829 48.6397 37.3088 49.7887C34.5347 50.9378 31.5615 51.5292 28.5589 51.5292C25.5563 51.5292 22.5831 50.9378 19.809 49.7887C17.0349 48.6397 14.5144 46.9555 12.3912 44.8323C10.268 42.7091 8.58382 40.1886 7.43477 37.4145C6.28571 34.6405 5.6943 31.6672 5.6943 28.6646C5.6943 22.6005 8.10324 16.7848 12.3912 12.4969C16.6791 8.20896 22.4948 5.80002 28.5589 5.80002C34.623 5.80002 40.4387 8.20896 44.7266 12.4969C49.0146 16.7848 51.4235 22.6005 51.4235 28.6646Z" fill="#7C7474"/>
+                            </svg>                              
+                        </button>
+                        <button class="tombolPlaySvg" name="mediabtn" id="play" value="playbtn">
+                            <svg width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 0C11.1942 0 0 11.1942 0 25C0 38.8058 11.1942 50 25 50C38.8058 50 50 38.8058 50 25C50 11.1942 38.8058 0 25 0ZM25 45.7589C13.5379 45.7589 4.24107 36.4621 4.24107 25C4.24107 13.5379 13.5379 4.24107 25 4.24107C36.4621 4.24107 45.7589 13.5379 45.7589 25C45.7589 36.4621 36.4621 45.7589 25 45.7589Z" fill="#C2B5B5"/>
+                                <path d="M36.5736 24.2801L20.0502 12.2824C19.9177 12.1852 19.7608 12.1268 19.597 12.1136C19.4332 12.1004 19.269 12.1329 19.1226 12.2075C18.9762 12.2822 18.8534 12.396 18.7679 12.5363C18.6824 12.6766 18.6376 12.8379 18.6384 13.0022V36.9978C18.6384 37.7288 19.4643 38.1417 20.0502 37.7176L36.5736 25.7199C36.6877 25.6377 36.7806 25.5295 36.8447 25.4044C36.9088 25.2792 36.9422 25.1406 36.9422 25C36.9422 24.8594 36.9088 24.7208 36.8447 24.5956C36.7806 24.4705 36.6877 24.3623 36.5736 24.2801V24.2801ZM22.1986 31.7578V18.2422L31.5011 25L22.1986 31.7578V31.7578Z" fill="#C2B5B5"/>
+                            </svg>
+                        </button>
+                        <form action="#" method="post">
+                            <button class="tombolForwardSvg" name="mediabtn" id="forward" value="forwardbtn">
+                                <svg width="29" height="34" viewBox="0 0 29 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.926822 28.4006C0.920311 32.5783 4.30169 35.167 6.96586 33.0205L21.0682 21.6602C23.6564 19.5754 23.6643 14.5322 21.0825 12.4393L7.01571 1.03512C4.35825 -1.11967 0.968816 1.45583 0.962301 5.63613L0.926822 28.4006ZM19.0214 17.0466L4.91905 28.4069L4.95453 5.64235L19.0214 17.0466ZM26.8689 33.1886C26.3395 33.1878 25.8322 32.9038 25.4587 32.399C25.0851 31.8943 24.8759 31.2102 24.877 30.4972L24.9189 3.61422C24.92 2.90124 25.1313 2.21779 25.5065 1.71422C25.8816 1.21065 26.3898 0.928211 26.9192 0.929036C27.4486 0.929861 27.9559 1.21388 28.3294 1.71862C28.703 2.22335 28.9122 2.90746 28.9111 3.62044L28.8692 30.5034C28.8681 31.2164 28.6567 31.8999 28.2816 32.4034C27.9065 32.907 27.3983 33.1894 26.8689 33.1886Z" fill="#7C7474"/>
+                                </svg>                                           
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>        
+            <!-- kanan -->
+            <div class="kotakKanan">
+                <div class="playlist">
+                    <div class="divqueuetxt">
+                        <p class="queueText">Queue</p>
+                    </div>
+                    <div class="kumpulanPlaylist">
+                        {% for num, singer, song, final in song_list %}
+                        <div class="pl1">
+                            <div class="list" id="list{{loop.index}}">
+                                <div class="songphotos">
+                                    <img id="btn_img{{loop.index}}" alt="">
+                                </div>
+                                <div class="num" id="num{{loop.index}}">{{ num }}</div>
+                                <div class="final">{{ final }}</div>
+                                <div class="singerSong">
+                                    <p class="judulPlaylist">{{song}}</p>
+                                    <p class="penyanyiPlaylist">{{singer}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="garisPlaylist1">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ url_for('main') }}" id="gotoHome">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            <p class="hometxt">Home</p>
+        </a>
+
+        <!-- <p>{{ page }}</p>
+        <p>picked: {{ showpick }}</p>
+        <p>song no: {{ song_no }}</p>
+        <p>from: {{ number_show }}</p>
+        <p>singer: {{ singer_show }}</p>
+        <p>song title: {{ song_show }}</p> -->
+        <!-- <a href="{{ url_for('main') }}">back to home</a>
+        <p>---------------------------</p>
+        <p>curr song num:</p>
+        <p id="curr_counter"></p>
+        <form action="#" method="post">
+            <button name="mediabtn" id="backward" value="backwardbtn">backward</button>
+            <button name="mediabtn" id="play" value="playbtn">play</button>
+            <button name="mediabtn" id="pause" value="pausebtn">pause</button>
+            <button name="mediabtn" id="forward" value="forwardbtn">forward</button>
+        </form>
+        <p>action:</p><p id="mediaaction">no action</p>
+        <p>---------------------------</p>
+        <p>user profile genre:</p>
+        {% for g in profile_genre %}
+        {{g}}
+        {% endfor %}
+        <br>
+        <p>user profile year:</p>
+        {% for y in profile_years %}
+        {{y}}
+        {% endfor %}
+        <p>---------------------------</p> -->
+    </body>
+    <script src="{{ url_for('static', filename = 'playlistjs.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'music.js') }}"></script>
+</html>
